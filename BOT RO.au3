@@ -2,6 +2,9 @@ HotKeySet("{HOME}", "stop")
 HotKeySet("{PAUSE}", "Pause")
 HotKeySet("{F9}", "Twohand")
 
+Opt("MouseCoordMode", 2)
+Opt("PixelCoordMode", 2)
+Opt("CaretCoordMode", 2)
 
 Global $GameHD
 Global $Paused
@@ -71,11 +74,10 @@ EndFunc
 
 Func Attack()
 	Blood()
-	$coord = PixelSearch(1126, 634, 1126, 634, 0x474747, 30 )	;ตีมอน
+	$coord = PixelSearch(1121, 634, 1121, 634, 0x474747, 30 )	;ตีมอน
 	If Not @error And $sit == 0 And $blood == 0 Then
 		WinActivate($GameHD)
-		ControlClick ($GameHD, "", "","left",1,1126, 634)
-		;MouseClick("",$coord[0] ,$coord[1],1,0)
+		MouseClick("",$coord[0] ,$coord[1],1,0)
 		$fight = 1
 		Sleep(1000)
 	Else
